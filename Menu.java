@@ -3,21 +3,26 @@ import javax.swing.JComponent;
 import java.awt.*;
 
 public class Menu {
+    int level;
+
     Font titleFont = new Font("SansSerif", Font.BOLD, 50);
     Font optionsFont = new Font("Monospace", Font.BOLD, 30);
 
     Color pink = new Color(255, 200, 221);
     Color lightBlue = new Color(189, 224, 254);
     Color blue = new Color(162, 210, 255);
+
     public Menu(){
         JFrame frame = new JFrame("Main Menu");
         frame.setSize(600, 500);
         frame.add(new Drawing());
         frame.setVisible(true);
     }
+
     public static void main(String[] args){
         new Menu();
     }
+
     class Drawing extends JComponent{
         public void paint(Graphics g){
             g.setColor(pink);

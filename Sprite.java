@@ -1,8 +1,10 @@
 public class Sprite {
-    int x, y;
+    int x, y; // x and y coordinates of the Sprite on the screen
 
     public Sprite() {
-        x = 0;
-        y = 0;
+        x = 50;
+        y = 50;
     }
+
+
 }
