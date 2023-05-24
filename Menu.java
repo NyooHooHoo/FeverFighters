@@ -1,10 +1,7 @@
-import javax.swing.JFrame;
-import javax.swing.JComponent;
+import javax.swing.*;
 import java.awt.*;
 
 public class Menu {
-    int level;
-
     Font titleFont = new Font("SansSerif", Font.BOLD, 50);
     Font optionsFont = new Font("Monospace", Font.BOLD, 30);
 
