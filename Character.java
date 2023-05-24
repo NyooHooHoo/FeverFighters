@@ -1,10 +1,26 @@
 public class Character extends Sprite {
-    int health;
-    int points;
+    private int health;
+    private int points;
 
-    public Character(int x, int y, String img) {
-        super(x, y, img);
+    public Character(int x, int y) {
+        super(x, y, "character");
         health = 3;
         points = 0;
+    }
+
+    public void loseHealth() {
+        health--;
+    }
+
+    public void gainPoints() {
+        points += 100;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public int getPoints() {
+        return points;
     }
 }

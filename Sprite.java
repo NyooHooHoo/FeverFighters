@@ -1,6 +1,6 @@
 public class Sprite {
-    int x, y; // x and y coordinates of the center of the Sprite
-    int height, width; // the height and width of the Sprite's hitbox
+    private int x, y; // x and y coordinates of the center of the Sprite
+    private int height, width; // the height and width of the Sprite's hitbox
 
     public Sprite(int x, int y, String img) {
         this.x = x;
@@ -26,5 +26,29 @@ public class Sprite {
             return false;
         // no collide if above
         return y1 <= y4 && y2 <= y3;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public int getWidth() {
+        return width;
     }
 }
