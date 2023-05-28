@@ -10,7 +10,7 @@ public class Menu {
     Color blue = new Color(162, 210, 255);
 
     public Menu(){
-        JFrame frame = new JFrame("Main Menu");
+        JFrame frame = new JFrame("Fever Fighters");
         frame.setSize(600, 500);
         frame.add(new Drawing());
         frame.setVisible(true);
