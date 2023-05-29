@@ -1,12 +1,10 @@
 import javax.swing.*;
-import java.awt.*;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class Test extends JFrame {
     public Test() throws IOException {
         setTitle("Testing Window");
-        setSize(600, 500);
+        setSize(600, 527);
         add(new Level(1));
         setVisible(true);
     }
