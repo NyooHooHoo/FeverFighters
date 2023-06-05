@@ -1,44 +1,45 @@
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.awt.image.ImageObserver;
 import java.io.File;
 import java.io.IOException;
 
 public class Sprite {
     private int x, y; // x and y coordinates of the top-left of the Sprite
-    private final int height, width; // the height and width of the Sprite's hit box
+    private int height, width; // the height and width of the Sprite's image
     private final String type; // the type of sprite
-    private final BufferedImage img;
+    private BufferedImage img;
+    private Rectangle hitbox;
 
     public Sprite(int x, int y, String type) throws IOException {
         this.x = x;
         this.y = y;
         this.type = type;
-        this.img = ImageIO.read(new File("assets/" + type + ".png"));
-        this.height = (int) (getImg().getHeight() * 0.8);
-        this.width = (int) (getImg().getWidth() * 0.5);
+        if (!type.equals("wall")) {
+            this.img = ImageIO.read(new File("assets/" + type + ".png"));
+            this.height = getImg().getHeight();
+            this.width = getImg().getWidth();
+            this.hitbox = new Rectangle(
+                    this.x + this.width / 6,
+                    this.getType().equals("character") ? (this.y + this.height / 2) :
+                            (this.y + this.height / (this.getType().equals("pepper") ? 3 : 4)),
+                    this.width * 2 / 3,
+                    this.getType().equals("character") ? (this.height / 2) : (this.height * 3 / 5)
+            );
+        }
     }
 
     public boolean collideWithSprite(Sprite s) {
-        int x1 = this.x;
-        int x2 = this.x + this.width;
-        int y1 = this.y + (int) (this.height * 0.9);
-        int y2 = this.y + this.height;
-        int x3 = s.x;
-        int x4 = s.x + s.width;
-        int y3 = s.y;
-        int y4 = s.y + s.height;
+        return this.hitbox.x < s.hitbox.x + s.hitbox.width && this.hitbox.x + this.hitbox.width > s.hitbox.x
+                && this.hitbox.y < s.hitbox.y + s.hitbox.height && this.hitbox.y + this.hitbox.height > s.hitbox.y;
+    }
 
-        // no collide with area 0
-        if (x1 == x2 || y1 == y2 || x3 == x4 || y3 == y4) {
-            return false;
-        }
-        // no collide if to the side
-        if (x1 > x4 || x2 < x3) {
-            return false;
-        }
-
-        // no collide if above or below
-        return y1 <= y4 && y2 >= y3;
+    public void draw(Graphics g, ImageObserver observer) {
+        g.drawImage(img, x, y, observer);
+//        Graphics2D g2 = (Graphics2D) g;
+//        g2.setStroke(new BasicStroke(1));
+//        g.drawRect(hitbox.x, hitbox.y, hitbox.width, hitbox.height);
     }
 
     public String getType() {
@@ -47,6 +48,10 @@ public class Sprite {
 
     public BufferedImage getImg() {
         return img;
+    }
+
+    public Rectangle getHitbox() {
+        return hitbox;
     }
 
     public int getX() {
@@ -59,17 +64,15 @@ public class Sprite {
 
     public void setX(int x) {
         this.x = x;
+        if (!type.equals("wall"))
+            this.hitbox.x = this.x + this.width / 6;
     }
 
     public void setY(int y) {
         this.y = y;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public int getWidth() {
-        return width;
+        if (!type.equals("wall")) {
+            this.hitbox.y = this.getType().equals("character") ? (this.y + this.height / 2) :
+                    (this.y + this.height / (this.getType().equals("pepper") ? 3 : 4));
+        }
     }
 }

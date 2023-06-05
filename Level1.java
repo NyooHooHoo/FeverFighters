@@ -10,7 +10,7 @@ public class Level1 extends Level {
     public Level1() throws IOException {
         super();
 
-        Character c = new Character(260, 330);
+        Character c = new Character(260, 310);
         addSprite(c);
 
         addSprite(new Item(60, 370, "target", false));
@@ -64,14 +64,14 @@ public class Level1 extends Level {
             getSprites().remove(s);
             if (getSprites().size() == 1) {
                 String msg = """
-                                Great work! Now, each of the items around you represents a good or bad thing to do when surviving a cold. Using the same moving controls, pick up each items to learn more about them. Make sure to remember this information, as it will be important in later levels!
-                                 
-                                \t\t[press ENTER to continue]""";
+                        Great work! Now, each of the items around you represents a good or bad thing to do when surviving a cold. Using the same moving controls, pick up each items to learn more about them. Make sure to remember this information, as it will be important in later levels!
+                         
+                        \t\t[press ENTER to continue]""";
                 setTextBox(msg);
                 setTextBoxVisible(true);
 
                 c.setX(260);
-                c.setY(330);
+                c.setY(310);
 
                 addSprite(new Item(60, 320, "water", false));
                 addSprite(new Item(60, 380, "soup", false));
@@ -86,25 +86,47 @@ public class Level1 extends Level {
             setTextBox(((Item) s).getDescription());
             setTextBoxVisible(true);
 
-            addKeyListener(new KeyAdapter() {
+            removeKeyListener(getEnterAdapter());
+            setEnterAdapter(new KeyAdapter() {
                 @Override
                 public void keyPressed(KeyEvent e) {
                     if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                         getSprites().remove(s);
+                        if (getTextBoxVisible()) {
+                            setTextBoxVisible(false);
+                        }
                         if (getSprites().size() == 1) {
-                            String congrats = """
-                                    Congratulations! Now that you’ve learned all about the dos and don’ts of surviving a cold, you can move on to the next level and test your new knowledge.
-                                    
-                                    
-                                    
-                                    \t\t[press ENTER to continue]""";
-                            setTextBox(congrats);
-                            setTextBoxVisible(true);
+                            endMessage();
                         }
                         repaint();
                     }
                 }
             });
+            addKeyListener(getEnterAdapter());
         }
+    }
+
+    public void endMessage() {
+        String congrats = """
+                Congratulations! Now that you’ve learned all about the dos and don’ts of surviving a cold, you can move on to the next level and test your knowledge of these items in a new setting.
+                
+                
+                \t\t[press ENTER to continue]""";
+        setTextBox(congrats);
+        setTextBoxVisible(true);
+        removeKeyListener(getEnterAdapter());
+        setEnterAdapter(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    try {
+                        fireLevelCompleteEvent();
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }
+            }
+        });
+        addKeyListener(getEnterAdapter());
     }
 }

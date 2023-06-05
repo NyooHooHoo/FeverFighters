@@ -9,23 +9,28 @@ import java.util.ArrayList;
 public abstract class Level extends JPanel {
     private final ArrayList<Sprite> sprites;
     private final TextBox textBox;
+    private KeyAdapter enterAdapter;
+    private LevelListener levelListener;
 
     public Level() {
         this.sprites = new ArrayList<>();
 
         textBox = new TextBox(7, 30);
-        this.add(textBox);
+        add(textBox);
 
-        addKeyListener(new KeyAdapter() {
+        this.enterAdapter = new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     if (getTextBoxVisible()) {
                         setTextBoxVisible(false);
                     }
+                    repaint();
                 }
             }
-        });
+        };
+
+        addKeyListener(enterAdapter);
 
         getInputMap().put(KeyStroke.getKeyStroke("W"), "moveUp");
         getInputMap().put(KeyStroke.getKeyStroke("S"), "moveDown");
@@ -36,11 +41,8 @@ public abstract class Level extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!getTextBoxVisible()) {
-                    try {
-                        move("up");
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
+                    try {move("up");}
+                    catch (IOException ex) {throw new RuntimeException(ex);}
                 }
             }
         });
@@ -49,11 +51,8 @@ public abstract class Level extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!getTextBoxVisible()) {
-                    try {
-                        move("down");
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
+                    try {move("down");}
+                    catch (IOException ex) {throw new RuntimeException(ex);}
                 }
             }
         });
@@ -62,11 +61,8 @@ public abstract class Level extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!getTextBoxVisible()) {
-                    try {
-                        move("left");
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
+                    try {move("left");}
+                    catch (IOException ex) {throw new RuntimeException(ex);}
                 }
             }
         });
@@ -75,11 +71,8 @@ public abstract class Level extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!getTextBoxVisible()) {
-                    try {
-                        move("right");
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
+                    try {move("right");}
+                    catch (IOException ex) {throw new RuntimeException(ex);}
                 }
             }
         });
@@ -95,7 +88,7 @@ public abstract class Level extends JPanel {
 
     private void drawSprites(Graphics g) {
         for (Sprite s : sprites) {
-            g.drawImage(s.getImg(), s.getX(), s.getY(), this);
+            s.draw(g, this);
         }
     }
 
@@ -103,7 +96,7 @@ public abstract class Level extends JPanel {
         for (int i = 0; i < sprites.size() - 1; i++) {
             Sprite c = sprites.get(sprites.size() - 1);
             Sprite s = sprites.get(i);
-            if (c.collideWithSprite(s)) {
+            if (s.collideWithSprite(c)) {
                 collide(c, s);
                 break;
             }
@@ -128,6 +121,30 @@ public abstract class Level extends JPanel {
 
     public void setTextBoxVisible(boolean b) {
         textBox.setVisible(b);
+    }
+
+    public KeyAdapter getEnterAdapter() {
+        return enterAdapter;
+    }
+
+    public void setEnterAdapter(KeyAdapter enterAdapter) {
+        this.enterAdapter = enterAdapter;
+    }
+
+    public void addLevelListener(LevelListener listener) {
+        this.levelListener = listener;
+    }
+
+    protected void fireLevelCompleteEvent() throws IOException {
+        if (levelListener != null) {
+            levelListener.levelComplete();
+        }
+    }
+
+    protected void fireGameOverEvent() throws IOException {
+        if (levelListener != null) {
+            levelListener.gameOver();
+        }
     }
 
     public abstract void move(String direction) throws IOException;

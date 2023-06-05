@@ -14,6 +14,7 @@ public class TextBox extends JTextArea {
         setEditable(false);
     }
 
+    @Override
     public boolean isFocusable() {
         return false;
     }
