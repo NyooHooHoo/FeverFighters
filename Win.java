@@ -25,7 +25,7 @@ public class Win {
             g.setColor(Color.BLACK);
             g.drawString("You WIN!", 150, 120);
 
-            int yPos = 210;
+            int yPos = 200;
             g.setFont(text);
             g.drawString("Congratulations! You have successfully", 60, yPos);
             g.drawString("completed all three levels and are now", 65, yPos+30);
