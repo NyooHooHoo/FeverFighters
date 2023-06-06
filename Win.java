@@ -32,7 +32,7 @@ public class Win {
             g.drawString("prepared to survive any cold!", 110, yPos+60);
 
             g.setColor(pink);
-            g.fillRect(225, 350, 150, 70);
+            g.fillRect(220, 350, 150, 70);
 
         }
     }
