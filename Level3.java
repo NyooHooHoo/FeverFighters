@@ -10,6 +10,7 @@ import java.io.IOException;
 public class Level3 extends Level {
     private final Timer timer;
     private int bgY;
+    private static final int shift = 4;
 
     public Level3() throws IOException {
         super();
@@ -19,7 +20,7 @@ public class Level3 extends Level {
         this.bgY = 0;
         generateRow();
 
-        timer = new Timer(100, e -> {
+        timer = new Timer(20, e -> {
             try {
                 updateRows();
             } catch (IOException ex) {
@@ -39,7 +40,7 @@ public class Level3 extends Level {
         });
 
         String welcome = """
-                Welcome to the final level! To survive your cold once and for all, escape this endless hall by running through collecting only good items (100 points each) until 5000 points. Avoid bad items, which will lose one of your three lives!
+                Welcome to the final level! To survive your cold once and for all, escape this endless hall by running through collecting only good items (worth 100 points each) until 10,000 points. Avoid bad items, which will lose one of your three lives!
 
 
                 \t\t[press ENTER to continue]""";
@@ -49,21 +50,74 @@ public class Level3 extends Level {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        drawInfo(g);
+        try {
+            drawInfo(g);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    private void drawInfo(Graphics g) {
-        g.setColor(new Color(252, 181, 228));
-        g.fillRect(20, 430, 90, 70);
+    private void drawInfo(Graphics g) throws IOException {
+        g.setColor(new Color(173, 222, 243));
+        g.fillRect(20, 425, 110, 60);
+        g.fillRect(470, 425, 115, 60);
+
+        Graphics2D g2 = (Graphics2D) g;
+        g2.setStroke(new BasicStroke(2));
+        g.setColor(Color.black);
+        g.drawRect(20, 425, 110, 60);
+        g.drawRect(470, 425, 115, 60);
+
+        g.setFont(new Font("Arial", Font.BOLD, 14));
+        g.drawString("Points", 504, 445);
+        g.drawString("Health", 53, 445);
+
+        g.setFont(new Font("Arial", Font.BOLD, 24));
+        Character c = (Character) getSprites().get(getSprites().size()-1);
+        String points = String.format("%05d", c.getPoints());
+        g.drawString(points, 495, 473);
+
+        BufferedImage heart = ImageIO.read(new File("assets/heart.png"));
+        BufferedImage emptyHeart = ImageIO.read(new File("assets/empty-heart.png"));
+
+        for (int i = 1; i <= 3; i++) {
+            if (c.getHealth() >= i)
+                g.drawImage(heart, 30 * i + 3, 450, this);
+            else
+                g.drawImage(emptyHeart, 30 * i + 3, 450, this);
+        }
     }
 
     private void generateRow() throws IOException {
         String[] good = {"water", "bed", "soup", "cold-med"};
         String[] bad = {"chips", "pepper", "pill"};
+
+        boolean prev1 = false;
+        boolean prev2 = false;
+        boolean prev3 = false;
+        boolean prev4 = false;
+        boolean prev6 = false;
+
+        for (int i = 0; i < getSprites().size() - 1; i++) {
+            Item item = (Item) getSprites().get(i);
+            if (item.getX() == 170 && item.getY() == shift) {
+                prev3 = item.isBad();
+            } else if (item.getX() == 270 && item.getY() == shift) {
+                prev2 = item.isBad();
+            } else if (item.getX() == 370 && item.getY() == shift) {
+                prev1 = item.isBad();
+            } else if (item.getX() == 170 && item.getY() == 100 + 2 * shift) {
+                prev6 = item.isBad();
+            } else if (item.getX() == 370 && item.getY() == 100 + 2 * shift) {
+                prev4 = item.isBad();
+            }
+        }
+
         int[] template = new int[3];
-        template[0] = (int) (Math.random() * 3) - 1;
-        template[1] = (int) (Math.random() * 3) - 1;
-        template[2] = template[0] == -1 && template[1] == -1 ? (int) (Math.random() * 2) : (int) (Math.random() * 3) - 1;
+        template[0] = (prev1 || prev4) && prev2 ? (int) (Math.random() * 2) : (int) (Math.random() * 3) - 1;
+        template[1] = prev1 && (prev3 || template[0] == -1) ? (int) (Math.random() * 2) : (int) (Math.random() * 3) - 1;
+        template[2] = ((prev2 || template[1] == -1) && (prev3 || template[0] == -1)) || (prev2 && prev6)
+                ? (int) (Math.random() * 2) : (int) (Math.random() * 3) - 1;
 
         for (int i = 0; i < template.length; i++) {
             if (template[i] != 0) {
@@ -78,7 +132,7 @@ public class Level3 extends Level {
     private void updateRows() throws IOException {
         for (int i = 0; i < getSprites().size() - 1; i++) {
             Sprite s = getSprites().get(i);
-            s.setY(s.getY() + 10);
+            s.setY(s.getY() + shift);
             if (s.getY() > 600) {
                 getSprites().remove(s);
             }
@@ -87,7 +141,7 @@ public class Level3 extends Level {
             generateRow();
         }
 
-        bgY += 10;
+        bgY += shift;
         if (bgY >= 500) {
             bgY = 0;
         }
@@ -132,11 +186,11 @@ public class Level3 extends Level {
         }
         else {
             ((Character) c).gainPoints();
-            if (((Character) c).getPoints() >= 5000) {
+            if (((Character) c).getPoints() >= 10000) {
                 timer.stop();
 
                 String congrats = """
-                        You've reached 5000 points! Blahblahblah...
+                        You did it! You've reached 10,000 points and completed the final level of Fever Fighters! Now you are fully equipped to survive any colds you will face in the future. We hope you enjoyed going along this journey with us!
                         
                         
                         \t\t[press ENTER to continue]""";

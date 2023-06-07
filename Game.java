@@ -84,6 +84,6 @@ public class Game extends JFrame {
     }
 
     public static void main(String[] args) throws IOException {
-        new Game(3);
+        new Game(2);
     }
 }
