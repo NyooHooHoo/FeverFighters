@@ -48,6 +48,18 @@ public class Level2 extends Level {
         addSprite(new Item(mazeX + 320, mazeY + 520, "target", false));
         addSprite(new Item(mazeX + 20, mazeY + 110, "chips", true));
         addSprite(new Item(mazeX + 120, mazeY + 10, "water", false));
+        addSprite(new Item(mazeX + 220, mazeY + 210, "bed", false));
+        addSprite(new Item(mazeX + 10, mazeY + 210, "cold-med", false));
+        addSprite(new Item(mazeX + 110, mazeY + 310, "pill", true));
+        addSprite(new Item(mazeX + 20, mazeY + 410, "bed", false));
+        addSprite(new Item(mazeX + 220, mazeY + 410, "water", false));
+        addSprite(new Item(mazeX + 310, mazeY + 10, "soup", false));
+        addSprite(new Item(mazeX + 410, mazeY + 110, "pepper", true));
+        addSprite(new Item(mazeX + 510, mazeY + 10, "pill", true));
+        addSprite(new Item(mazeX + 520, mazeY + 210, "chips", true));
+        addSprite(new Item(mazeX + 310, mazeY + 210, "cold-med", false));
+        addSprite(new Item(mazeX + 410, mazeY + 410, "soup", false));
+        addSprite(new Item(mazeX + 510, mazeY + 310, "pepper", true));
 
         String welcome = """
                 Welcome to the maze level! While you cannot see the entire maze at once, following the good items will lead you to the red X at the exit. Make sure to avoid bad items, as touching them will make you start from the beginning again!
@@ -147,7 +159,7 @@ public class Level2 extends Level {
             addKeyListener(getEnterAdapter());
         }
         else if (((Item) s).isBad()) {
-            fireGameOverEvent();
+            fireGameOverEvent(s.getType());
         }
         else {
             getSprites().remove(s);
