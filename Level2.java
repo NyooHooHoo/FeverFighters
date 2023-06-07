@@ -147,7 +147,7 @@ public class Level2 extends Level {
             addKeyListener(getEnterAdapter());
         }
         else if (((Item) s).isBad()) {
-            fireGameOverEvent();
+            fireGameOverEvent(s.getType());
         }
         else {
             getSprites().remove(s);

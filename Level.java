@@ -10,7 +10,7 @@ public abstract class Level extends JPanel {
     private final ArrayList<Sprite> sprites;
     private final TextBox textBox;
     private KeyAdapter enterAdapter;
-    private LevelListener levelListener;
+    private PanelListener panelListener;
 
     public Level() {
         this.sprites = new ArrayList<>();
@@ -131,19 +131,19 @@ public abstract class Level extends JPanel {
         this.enterAdapter = enterAdapter;
     }
 
-    public void addLevelListener(LevelListener listener) {
-        this.levelListener = listener;
+    public void addLevelListener(PanelListener listener) {
+        this.panelListener = listener;
     }
 
     protected void fireLevelCompleteEvent() throws IOException {
-        if (levelListener != null) {
-            levelListener.levelComplete();
+        if (panelListener != null) {
+            panelListener.levelComplete();
         }
     }
 
-    protected void fireGameOverEvent() throws IOException {
-        if (levelListener != null) {
-            levelListener.gameOver();
+    protected void fireGameOverEvent(String cause) throws IOException {
+        if (panelListener != null) {
+            panelListener.gameOver(cause);
         }
     }
 
