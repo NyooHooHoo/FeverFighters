@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="FeverFighters:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/FeverFighters_jar</output-path>
+    <root id="archive" name="FeverFighters.jar">
+      <element id="module-output" name="FeverFighters" />
+    </root>
+  </artifact>
+</component>
