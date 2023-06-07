@@ -106,9 +106,9 @@ public class Level3 extends Level {
                 prev2 = item.isBad();
             } else if (item.getX() == 370 && item.getY() == shift) {
                 prev1 = item.isBad();
-            } else if (item.getX() == 170 && item.getY() == 100 + 2 * shift) {
+            } else if (item.getX() == 170 && item.getY() == 120 + 2 * shift) {
                 prev6 = item.isBad();
-            } else if (item.getX() == 370 && item.getY() == 100 + 2 * shift) {
+            } else if (item.getX() == 370 && item.getY() == 120 + 2 * shift) {
                 prev4 = item.isBad();
             }
         }
@@ -122,7 +122,7 @@ public class Level3 extends Level {
         for (int i = 0; i < template.length; i++) {
             if (template[i] != 0) {
                 String type = template[i] > 0 ? good[(int) (Math.random() * good.length)] : bad[(int) (Math.random() * bad.length)];
-                addSprite(new Item(170 + 100 * i, -100, type, template[i] < 0));
+                addSprite(new Item(170 + 100 * i, -120, type, template[i] < 0));
             }
         }
 
@@ -213,7 +213,5 @@ public class Level3 extends Level {
                 addKeyListener(getEnterAdapter());
             }
         }
-        System.out.println(((Character) c).getHealth());
-        System.out.println(((Character) c).getPoints());
     }
 }

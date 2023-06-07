@@ -12,7 +12,16 @@ public class Menu {
     public Menu(){
         JFrame frame = new JFrame("Fever Fighters");
         frame.setSize(600, 500);
-        frame.add(new Drawing());
+        Drawing drawing = new Drawing();
+        drawing.setLayout(null);
+
+        JButton exit = new JButton("Exit");
+        exit.setBounds(120, 350, 340, 60);
+        exit.setUI(new GameButtonUI(lightBlue, blue));
+        exit.setBackground(lightBlue);
+        frame.add(exit);
+
+        frame.add(drawing);
         frame.setVisible(true);
     }
 
@@ -32,20 +41,20 @@ public class Menu {
             g.fillRect(120, 110, 340, 60);
             g.fillRect(120, 190, 340, 60);
             g.fillRect(120, 270, 340, 60);
-            g.fillRect(120, 350, 340, 60);
+//            g.fillRect(120, 350, 340, 60);
 
             g.setColor(blue);
             g.drawRect(120, 110, 340, 60);
             g.drawRect(120, 190, 340, 60);
             g.drawRect(120, 270, 340, 60);
-            g.drawRect(120, 350, 340, 60);
+//            g.drawRect(120, 350, 340, 60);
 
             g.setColor(Color.BLACK);
             g.setFont(optionsFont);
             g.drawString("Play", 250, 150);
             g.drawString("Level Select", 200, 230);
             g.drawString("About", 250, 310);
-            g.drawString("Exit", 250, 390);
+//            g.drawString("Exit", 250, 390);
         }
     }
 }
