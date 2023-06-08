@@ -14,8 +14,8 @@ public class Level1 extends Level {
         addSprite(c);
 
         addSprite(new Item(60, 370, "target", false));
-        addSprite(new Item(300, 460, "target", false));
-        addSprite(new Item(20, 450, "target", false));
+        addSprite(new Item(300, 450, "target", false));
+        addSprite(new Item(20, 440, "target", false));
         addSprite(new Item(500, 390, "target", false));
 
         String welcome = """
@@ -77,9 +77,9 @@ public class Level1 extends Level {
 
                 addSprite(new Item(60, 320, "water", false));
                 addSprite(new Item(60, 380, "soup", false));
-                addSprite(new Item(160, 410, "bed", false));
-                addSprite(new Item(260, 410, "cold-med", false));
-                addSprite(new Item(360, 410, "pill", true));
+                addSprite(new Item(160, 400, "bed", false));
+                addSprite(new Item(260, 400, "cold-med", false));
+                addSprite(new Item(360, 400, "pill", true));
                 addSprite(new Item(460, 380, "pepper", true));
                 addSprite(new Item(460, 320, "chips", true));
             }
