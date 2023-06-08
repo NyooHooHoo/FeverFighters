@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
@@ -9,14 +10,34 @@ import java.util.ArrayList;
 public abstract class Level extends JPanel {
     private final ArrayList<Sprite> sprites;
     private final TextBox textBox;
+    private final JButton button;
     private KeyAdapter enterAdapter;
-    private PanelListener panelListener;
+    private LevelListener levelListener;
 
     public Level() {
         this.sprites = new ArrayList<>();
 
+        setLayout(null); // Disable layout manager
+
         textBox = new TextBox(7, 30);
+        textBox.setBounds(125, 10, 350, 165); // Center horizontally
         add(textBox);
+
+        button = new JButton("Menu");
+        button.setBounds(10, 10, 70, 50); // Top-left corner
+        button.setUI(new GameButtonUI(new Color(122, 231, 108)));
+        button.setBackground(new Color(165, 239, 157));
+        button.setFocusPainted(false);
+        button.setBorder(new LineBorder(new Color(0, 138, 43), 2));
+        button.setFont(new Font("Arial", Font.BOLD, 14));
+        button.addActionListener(e -> {
+            try {
+                levelListener.returnMenu();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        add(button);
 
         this.enterAdapter = new KeyAdapter() {
             @Override
@@ -41,8 +62,11 @@ public abstract class Level extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!getTextBoxVisible()) {
-                    try {move("up");}
-                    catch (IOException ex) {throw new RuntimeException(ex);}
+                    try {
+                        move("up");
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
             }
         });
@@ -51,8 +75,11 @@ public abstract class Level extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!getTextBoxVisible()) {
-                    try {move("down");}
-                    catch (IOException ex) {throw new RuntimeException(ex);}
+                    try {
+                        move("down");
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
             }
         });
@@ -61,8 +88,11 @@ public abstract class Level extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!getTextBoxVisible()) {
-                    try {move("left");}
-                    catch (IOException ex) {throw new RuntimeException(ex);}
+                    try {
+                        move("left");
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
             }
         });
@@ -71,8 +101,11 @@ public abstract class Level extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!getTextBoxVisible()) {
-                    try {move("right");}
-                    catch (IOException ex) {throw new RuntimeException(ex);}
+                    try {
+                        move("right");
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
             }
         });
@@ -81,8 +114,11 @@ public abstract class Level extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        try {drawBackground(g);}
-        catch (IOException e) {throw new RuntimeException(e);}
+        try {
+            drawBackground(g);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         drawSprites(g);
     }
 
@@ -123,6 +159,10 @@ public abstract class Level extends JPanel {
         textBox.setVisible(b);
     }
 
+    public JButton getButton() {
+        return button;
+    }
+
     public KeyAdapter getEnterAdapter() {
         return enterAdapter;
     }
@@ -131,19 +171,19 @@ public abstract class Level extends JPanel {
         this.enterAdapter = enterAdapter;
     }
 
-    public void addLevelListener(PanelListener listener) {
-        this.panelListener = listener;
+    public void addLevelListener(LevelListener listener) {
+        this.levelListener = listener;
     }
 
     protected void fireLevelCompleteEvent() throws IOException {
-        if (panelListener != null) {
-            panelListener.levelComplete();
+        if (levelListener != null) {
+            levelListener.levelComplete();
         }
     }
 
     protected void fireGameOverEvent(String cause) throws IOException {
-        if (panelListener != null) {
-            panelListener.gameOver(cause);
+        if (levelListener != null) {
+            levelListener.gameOver(cause);
         }
     }
 

@@ -39,11 +39,14 @@ public class Level3 extends Level {
             }
         });
 
+        getButton().addActionListener(e -> timer.stop());
+
         String welcome = """
                 Welcome to the final level! To survive your cold once and for all, escape this endless hall by running through collecting only good items (worth 100 points each) until 10,000 points. Avoid bad items, which will lose one of your three lives!
 
 
-                \t\t[press ENTER to continue]""";
+
+                \t                [press ENTER to continue]""";
         setTextBox(welcome);
     }
 
@@ -188,29 +191,7 @@ public class Level3 extends Level {
             ((Character) c).gainPoints();
             if (((Character) c).getPoints() >= 10000) {
                 timer.stop();
-
-                String congrats = """
-                        You did it! You've reached 10,000 points and completed the final level of Fever Fighters! Now you are fully equipped to survive any colds you will face in the future. We hope you enjoyed going along this journey with us!
-                        
-                        
-                        \t\t[press ENTER to continue]""";
-                setTextBox(congrats);
-                setTextBoxVisible(true);
-
-                removeKeyListener(getEnterAdapter());
-                setEnterAdapter(new KeyAdapter() {
-                    @Override
-                    public void keyPressed(KeyEvent e) {
-                        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                            try {
-                                fireLevelCompleteEvent();
-                            } catch (IOException ex) {
-                                throw new RuntimeException(ex);
-                            }
-                        }
-                    }
-                });
-                addKeyListener(getEnterAdapter());
+                fireLevelCompleteEvent();
             }
         }
     }

@@ -18,6 +18,4 @@ public class TextBox extends JTextArea {
     public boolean isFocusable() {
         return false;
     }
-
-
 }

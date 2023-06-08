@@ -1,52 +1,55 @@
-import javax.swing.JFrame;
-import javax.swing.JComponent;
+import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
-public class LevelSelect {
-    Font titleFont = new Font("SansSerif", Font.BOLD, 50);
-    Font optionsFont = new Font("Monospace", Font.BOLD, 18);
+public class LevelSelect extends MenuPanel {
+    public LevelSelect() {
+        setLayout(new GridBagLayout()); // Use GridBagLayout for precise positioning
 
-    Color pink = new Color(255, 200, 221);
-    Color lightBlue = new Color(189, 224, 254);
-    Color blue = new Color(162, 210, 255);
+        JLabel title = new JLabel("Level Select");
+        JButton level1 = new JButton("Level 1: Learning");
+        JButton level2 = new JButton("Level 2: Maze");
+        JButton level3 = new JButton("Level 3: Challenge");
+        JButton menu = new JButton("Return to Menu");
 
-    public LevelSelect(){
-        JFrame frame = new JFrame("Level Select");
-        frame.setSize(600, 500);
-        frame.add(new Drawing());
-        frame.setVisible(true);
-    }
+        level1.addActionListener(e -> {
+            try {
+                startGameEvent(1);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
 
-    public static void main(String[] args){
-        new LevelSelect();
-    }
+        level2.addActionListener(e -> {
+            try {
+                startGameEvent(2);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
 
-    class Drawing extends JComponent{
-        public void paint(Graphics g){
-            g.setColor(pink);
-            g.fillRect(0, 0, 1200, 800);
-            g.setFont(titleFont);
-            g.setColor(Color.BLACK);
-            g.drawString("Level Select", 120, 80);
+        level3.addActionListener(e -> {
+            try {
+                startGameEvent(3);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
 
-            g.setColor(lightBlue);
-            g.fillRect(120, 110, 340, 60);
-            g.fillRect(120, 190, 340, 60);
-            g.fillRect(120, 270, 340, 60);
-            g.fillRect(120, 350, 340, 60);
+        menu.addActionListener(e -> {
+            try {
+                returnMenuEvent();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
 
-            g.setColor(blue);
-            g.drawRect(120, 110, 340, 60);
-            g.drawRect(120, 190, 340, 60);
-            g.drawRect(120, 270, 340, 60);
-            g.drawRect(120, 350, 340, 60);
+        addTitle(title, 0, 0);
+        addButton(level1, 1, 0);
+        addButton(level2, 2, 0);
+        addButton(level3, 3, 0);
+        addButton(menu, 4, 0);
 
-            g.setColor(Color.BLACK);
-            g.setFont(optionsFont);
-            g.drawString("Level 1: Learning", 250, 150);
-            g.drawString("Level 2: Maze", 250, 230);
-            g.drawString("Level 3: Escape Room", 250, 310);
-            g.drawString("Return to Main Menu", 250, 390);
-        }
+        setVisible(true);
     }
 }

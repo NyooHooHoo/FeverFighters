@@ -64,7 +64,9 @@ public class Level2 extends Level {
         String welcome = """
                 Welcome to the maze level! While you cannot see the entire maze at once, following the good items will lead you to the red X at the exit. Make sure to avoid bad items, as touching them will make you start from the beginning again!
 
-                \t\t[press ENTER to continue]""";
+
+
+                \t                [press ENTER to continue]""";
         setTextBox(welcome);
     }
 
@@ -137,9 +139,10 @@ public class Level2 extends Level {
         else if (s.getType().equals("target")) {
             String congrats = """
                 Congratulations on completing Level 2! You've completed the maze using your knowledge on surviving a cold, but you're not a master yet! It's now time for the final level, where you'll face your toughest challenge yet to finally escape your cold.
-                
-                
-                \t\t[press ENTER to continue]""";
+                                
+                                
+                                
+                \t                [press ENTER to continue]]""";
             setTextBox(congrats);
             setTextBoxVisible(true);
 

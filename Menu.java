@@ -1,60 +1,55 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
-public class Menu {
-    Font titleFont = new Font("SansSerif", Font.BOLD, 50);
-    Font optionsFont = new Font("Monospace", Font.BOLD, 30);
+public class Menu extends MenuPanel {
+    public Menu() {
+        setLayout(new GridBagLayout()); // Use GridBagLayout for precise positioning
 
-    Color pink = new Color(255, 200, 221);
-    Color lightBlue = new Color(189, 224, 254);
-    Color blue = new Color(162, 210, 255);
-
-    public Menu(){
-        JFrame frame = new JFrame("Fever Fighters");
-        frame.setSize(600, 500);
-        Drawing drawing = new Drawing();
-        drawing.setLayout(null);
-
+        JLabel title = new JLabel("Fever Fighters");
+        JButton play = new JButton("Play");
+        JButton levelSelect = new JButton("Level Select");
+        JButton about = new JButton("About");
         JButton exit = new JButton("Exit");
-        exit.setBounds(120, 350, 340, 60);
-        exit.setUI(new GameButtonUI(lightBlue, blue));
-        exit.setBackground(lightBlue);
-        frame.add(exit);
 
-        frame.add(drawing);
-        frame.setVisible(true);
-    }
+        play.addActionListener(e -> {
+            try {
+                startGameEvent(1);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
 
-    public static void main(String[] args){
-        new Menu();
-    }
+        levelSelect.addActionListener(e -> {
+            try {
+                levelSelectEvent();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
 
-    class Drawing extends JComponent{
-        public void paint(Graphics g){
-            g.setColor(pink);
-            g.fillRect(0, 0, 1200, 800);
-            g.setFont(titleFont);
-            g.setColor(Color.BLACK);
-            g.drawString("Fever Fighters", 120, 80);
+        about.addActionListener(e -> {
+            try {
+                aboutEvent();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
 
-            g.setColor(lightBlue);
-            g.fillRect(120, 110, 340, 60);
-            g.fillRect(120, 190, 340, 60);
-            g.fillRect(120, 270, 340, 60);
-//            g.fillRect(120, 350, 340, 60);
+        exit.addActionListener(e -> {
+            try {
+                exitEvent();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
 
-            g.setColor(blue);
-            g.drawRect(120, 110, 340, 60);
-            g.drawRect(120, 190, 340, 60);
-            g.drawRect(120, 270, 340, 60);
-//            g.drawRect(120, 350, 340, 60);
+        addTitle(title, 0, 0);
+        addButton(play, 1, 0);
+        addButton(levelSelect, 2, 0);
+        addButton(about, 3, 0);
+        addButton(exit, 4, 0);
 
-            g.setColor(Color.BLACK);
-            g.setFont(optionsFont);
-            g.drawString("Play", 250, 150);
-            g.drawString("Level Select", 200, 230);
-            g.drawString("About", 250, 310);
-//            g.drawString("Exit", 250, 390);
-        }
+        setVisible(true);
     }
 }

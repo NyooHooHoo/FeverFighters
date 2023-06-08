@@ -19,10 +19,11 @@ public class Level1 extends Level {
         addSprite(new Item(500, 390, "target", false));
 
         String welcome = """
-                Welcome to Fever Fighters! To control your character, use the WASD keys to move up, left, down, and right. To practice moving around, make your character walk to each of the red Xs on the screen.
-
-
-                \t\t[press ENTER to continue]""";
+                Welcome to Fever Fighters! To control your character, use the WASD keys to move up, left, down, and right. Let's practice moving around by making your character walk to each of the red Xs on the screen.
+                
+                
+                
+                \t                [press ENTER to continue]""";
         setTextBox(welcome);
     }
 
@@ -66,7 +67,8 @@ public class Level1 extends Level {
                 String msg = """
                         Great work! Now, each of the items around you represents a good or bad thing to do when surviving a cold. Using the same moving controls, pick up each items to learn more about them. Make sure to remember this information, as it will be important in later levels!
                          
-                        \t\t[press ENTER to continue]""";
+                        
+                        \t                [press ENTER to continue]""";
                 setTextBox(msg);
                 setTextBoxVisible(true);
 
@@ -111,7 +113,9 @@ public class Level1 extends Level {
                 Congratulations! Now that you’ve learned all about the dos and don’ts of surviving a cold, you can move on to the next level and test your knowledge of these items in a new setting.
                 
                 
-                \t\t[press ENTER to continue]""";
+                
+                
+                \t                [press ENTER to continue]""";
         setTextBox(congrats);
         setTextBoxVisible(true);
         removeKeyListener(getEnterAdapter());
