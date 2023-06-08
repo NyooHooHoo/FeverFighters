@@ -47,11 +47,22 @@ public class Lose extends MenuPanel {
         int yPos = 200;
         g.setFont(text);
 
-        if(cause.equals("pepper")){
-            g.drawString("Oh, no! Remember that chips and other junk foods should be", 28, yPos);
-            g.drawString("avoided when you are sick because they are unhealthy and", 32, yPos+30);
-            g.drawString("their rough textures can make your throat hurt even more.", 39, yPos+60);
-            g.drawString("Better luck next time!", 205, yPos+90);
+        switch (cause) {
+            case "chips" -> {
+                g.drawString("Oh, no! Remember that chips and other junk foods", 68, yPos);
+                g.drawString("are unhealthy and their rough textures can make", 76, yPos + 30);
+                g.drawString("your throat hurt even more. Better luck next time!", 73, yPos + 60);
+            }
+            case "pepper" -> {
+                g.drawString("Oh, no! Remember that spicy foods can aggravate", 70, yPos);
+                g.drawString("your cold and should be avoided when you are", 90, yPos + 30);
+                g.drawString("sick. Better luck next time!", 180, yPos + 60);
+            }
+            case "pill" -> {
+                g.drawString("Oh, no! Remember that most non-cold medications", 66, yPos);
+                g.drawString("and pills are actually ineffective against colds!", 83, yPos + 30);
+                g.drawString("Better luck next time!", 210, yPos + 60);
+            }
         }
     }
 }
