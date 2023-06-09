@@ -10,8 +10,8 @@ public class SplashScreen extends JPanel {
     private int alpha;
     private AnimationListener listener;
     private final Font titleFont = new Font("SansSerif", Font.BOLD, 20);
-    private final BufferedImage logo = ImageIO.read(new File("assets/logo.png"));
     private final Color bg = new Color(201, 214, 248);
+    private final BufferedImage logo = ImageIO.read(new File("assets/logo.png"));
 
     public SplashScreen() throws IOException {
         alpha = 0;

@@ -75,6 +75,7 @@ public class Game extends JFrame {
         setTitle("Fever Fighters");
         setSize(600, 521);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
 
         gameOverCause = "";
         currentPanelNum = start;

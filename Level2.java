@@ -142,7 +142,7 @@ public class Level2 extends Level {
                                 
                                 
                                 
-                \t                [press ENTER to continue]]""";
+                \t                [press ENTER to continue]""";
             setTextBox(congrats);
             setTextBoxVisible(true);
 
