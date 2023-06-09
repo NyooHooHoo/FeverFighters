@@ -9,10 +9,33 @@ import java.io.IOException;
  * The Sprite class represents a game sprite with its position, image, hitbox, and collision logic.
  */
 public class Sprite {
-    private int x, y;
-    private int height, width;
+    /**
+     * The x-coordinate of the Sprite
+     */
+    private int x;
+    /**
+     * The y-coordinate of the Sprite
+     */
+    private int y;
+    /**
+     * The height of the sprite
+     */
+    private int height;
+    /**
+     * The width of the sprite
+     */
+    private int width;
+    /**
+     * The type of Sprite
+     */
     private final String type;
+    /**
+     * The BufferedImage to display for the Sprite on screen
+     */
     private BufferedImage img;
+    /**
+     * The hitbox for the Sprite where it can collide with other Sprites
+     */
     private Rectangle hitbox;
 
     /**

@@ -7,8 +7,17 @@ import java.io.IOException;
  * The Win class represents the panel displayed when the player wins the game.
  */
 public class Win extends MenuPanel {
+    /**
+     * Font for the title
+     */
     private final Font titleFont = new Font("Serif", Font.BOLD, 65);
+    /**
+     * Font for the body text
+     */
     private final Font text = new Font("Monospace", Font.BOLD, 25);
+    /**
+     * Color for the background
+     */
     private final Color green = new Color(150, 224, 114);
 
     /**

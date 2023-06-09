@@ -8,9 +8,21 @@ import java.io.IOException;
  * It extends the MenuPanel class and displays the game over message and the cause of the loss.
  */
 public class Lose extends MenuPanel {
+    /**
+     * Font for the title
+     */
     private final Font titleFont = new Font("Serif", Font.BOLD, 65);
+    /**
+     * Font for the body text
+     */
     private final Font textFont = new Font("Monospace", Font.PLAIN, 20);
+    /**
+     * String for the type of Item that caused game over
+     */
     private final String cause;
+    /**
+     * Color for background of the screen
+     */
     private final Color red = new Color(234, 153, 153);
 
     /**

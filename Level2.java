@@ -6,8 +6,21 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Represents the second level of the game.
+ */
 public class Level2 extends Level {
-    private int bgX, bgY;
+    /**
+     * The x-coordinate of the background
+     */
+    private int bgX;
+    /**
+     * The y-coordinate of the background
+     */
+    private int bgY;
+    /**
+     * The reverse of the most recent direction the character moved (up, down, left, right)
+     */
     private String reverseDirection;
 
     public Level2() throws IOException {

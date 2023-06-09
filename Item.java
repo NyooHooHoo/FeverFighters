@@ -5,7 +5,13 @@ import java.io.IOException;
  * It contains information about the item's type, whether it is bad or not, and its description.
  */
 public class Item extends Sprite {
+    /**
+     * Boolean to store whether the Item is bad
+     */
     private final boolean isBad;
+    /**
+     * String for description of item
+     */
     private final String description;
 
     /**

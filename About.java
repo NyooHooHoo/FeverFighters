@@ -11,10 +11,25 @@ import java.io.IOException;
  * It extends the MenuPanel class.
  */
 public class About extends MenuPanel {
+    /**
+     * Font used for the title
+     */
     private final Font titleFont = new Font("SansSerif", Font.BOLD, 50);
+    /**
+     * Font used for the body text
+     */
     private final Font text = new Font("Monospace", Font.PLAIN, 15);
+    /**
+     * Color of the text box background
+     */
     private final Color lightBlue = new Color(189, 224, 254);
+    /**
+     * Color of the text box borders
+     */
     private final Color blue = new Color(162, 210, 255);
+    /**
+     * BufferedImage for the company logo
+     */
     private final BufferedImage logo;
 
     /**

@@ -7,6 +7,9 @@ import java.awt.*;
  * It extends the MetalButtonUI class from the Java Swing framework.
  */
 public class GameButtonUI extends MetalButtonUI {
+    /**
+     * Color of the button when pressed
+     */
     private final Color pressedColor;
 
     /**

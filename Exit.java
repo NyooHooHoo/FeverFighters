@@ -10,14 +10,41 @@ import java.io.IOException;
  * It provides a thank-you message and credits.
  */
 public class Exit extends JPanel {
+    /**
+     * Timer to run animation
+     */
     private final Timer timer;
+    /**
+     * Opacity of components on screen
+     */
     private int alpha;
+    /**
+     * AnimationListener to fire events when animation complete
+     */
     private AnimationListener listener;
+    /**
+     * Font of the "Thank You" text
+     */
     private final Font ty = new Font("Serif", Font.BOLD, 55);
+    /**
+     * Font of the "For Playing" text
+     */
     private final Font fp = new Font("SansSerif", Font.BOLD, 30);
+    /**
+     * Font of the "Fever Fighters" text
+     */
     private final Font ff = new Font("Serif", Font.BOLD, 65);
+    /**
+     * Font of the rest of the body text
+     */
     private final Font text = new Font("Monospace", Font.BOLD, 17);
+    /**
+     * Color of the background
+     */
     private final Color blue = new Color(159, 197, 232);
+    /**
+     * BufferedImage for the company logo
+     */
     private final BufferedImage logo = ImageIO.read(new File("assets/logo.png"));
 
     /**

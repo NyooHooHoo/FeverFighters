@@ -10,11 +10,29 @@ import java.io.IOException;
  * It extends the JPanel class.
  */
 public class SplashScreen extends JPanel {
+    /**
+     * Timer to control animation
+     */
     private final Timer timer;
+    /**
+     * Opacity of components on screen
+     */
     private int alpha;
+    /**
+     * AnimationListener to fire events when animation complete
+     */
     private AnimationListener listener;
+    /**
+     * Font for the title
+     */
     private final Font titleFont = new Font("SansSerif", Font.BOLD, 20);
+    /**
+     * Color for the background
+     */
     private final Color bg = new Color(201, 214, 248);
+    /**
+     * BufferedImage for the company logo
+     */
     private final BufferedImage logo;
 
     /**

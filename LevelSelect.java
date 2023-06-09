@@ -7,7 +7,6 @@ import java.io.IOException;
  * It extends the MenuPanel class and provides buttons for different levels and a return to the menu option.
  */
 public class LevelSelect extends MenuPanel {
-
     /**
      * Constructs a LevelSelect object.
      * Sets up the layout using GridBagLayout for precise positioning.

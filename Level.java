@@ -12,10 +12,25 @@ import java.util.ArrayList;
  * It extends JPanel and contains methods for drawing sprites, handling collisions, and managing the level state.
  */
 public abstract class Level extends JPanel {
+    /**
+     * ArrayList of all Sprites to display in a Level
+     */
     private final ArrayList<Sprite> sprites;
+    /**
+     * TextBox of the level to display info
+     */
     private final TextBox textBox;
+    /**
+     * JButton to return to menu
+     */
     private final JButton button;
+    /**
+     * KeyAdapter to respond to user hitting the enter key
+     */
     private KeyAdapter enterAdapter;
+    /**
+     * LevelListener to fire events to higher class
+     */
     private LevelListener levelListener;
 
     /**

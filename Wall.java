@@ -6,7 +6,13 @@ import java.io.IOException;
  * The Wall class represents a wall sprite in the game.
  */
 public class Wall extends Sprite {
+    /**
+     * The length of the Wall
+     */
     private final int length;
+    /**
+     * The direction of the wall (horizontal or vertical)
+     */
     private final String direction;
 
     /**

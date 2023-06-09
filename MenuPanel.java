@@ -8,11 +8,29 @@ import java.io.IOException;
  * It extends the JPanel class.
  */
 public class MenuPanel extends JPanel {
+    /**
+     * Font for the title
+     */
     private final Font titleFont = new Font("SansSerif", Font.BOLD, 50);
+    /**
+     * Font for the buttons
+     */
     private final Font optionsFont = new Font("Monospace", Font.BOLD, 30);
+    /**
+     * Color for the background
+     */
     private final Color pink = new Color(255, 200, 221);
+    /**
+     * Color for the button fill
+     */
     private final Color lightBlue = new Color(189, 224, 254);
+    /**
+     * Color for the button border
+     */
     private final Color blue = new Color(162, 210, 255);
+    /**
+     * MenuListener to fire events when buttons clicked
+     */
     private MenuListener menuListener;
 
     /**

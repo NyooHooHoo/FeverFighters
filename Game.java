@@ -1,11 +1,25 @@
 import javax.swing.*;
 import java.io.IOException;
 
+/**
+ * The Game class represents one instance of a game in a JFrame, managing all other classes through JPanels.
+ */
 public class Game extends JFrame {
+    /**
+     * The current JPanel being displayed
+     */
     private JPanel currentPanel;
+    /**
+     * The number ID of the current panel
+     */
     private int currentPanelNum;
+    /**
+     * The item that caused game over when event fired
+     */
     private String gameOverCause;
-
+    /**
+     * Implementation of LevelListener for the game
+     */
     private final LevelListener levelListener = new LevelListener() {
         @Override
         public void levelComplete() throws IOException {
@@ -26,6 +40,9 @@ public class Game extends JFrame {
             loadPanel(currentPanelNum);
         }
     };
+    /**
+     * Implementation of MenuListener for the game
+     */
     private final MenuListener menuListener = new MenuListener() {
         @Override
         public void startGame(int level) throws IOException {
@@ -57,6 +74,9 @@ public class Game extends JFrame {
             loadPanel(currentPanelNum);
         }
     };
+    /**
+     * Implementation of AnimationListener for the game
+     */
     private final AnimationListener animationListener = new AnimationListener() {
         @Override
         public void loadMenu() throws IOException {

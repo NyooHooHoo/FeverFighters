@@ -12,8 +12,17 @@ import java.io.IOException;
  * Extends the Level class and introduces new features specific to this level.
  */
 public class Level3 extends Level {
+    /**
+     * Timer to control animation of Items
+     */
     private final Timer timer;
+    /**
+     * The y-coordinate of the background
+     */
     private int bgY;
+    /**
+     * The number of pixels the screen shifts each Timer tick
+     */
     private static final int shift = 4;
 
     /**

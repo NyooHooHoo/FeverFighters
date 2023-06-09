@@ -5,7 +5,13 @@ import java.io.IOException;
  * It extends the Sprite class.
  */
 public class Character extends Sprite {
+    /**
+     * Number of health for character
+     */
     private int health;
+    /**
+     * Number of points the character has
+     */
     private int points;
 
     /**
