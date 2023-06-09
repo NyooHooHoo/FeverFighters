@@ -3,18 +3,27 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.io.IOException;
 
+/**
+ * The Lose class represents a panel that is displayed when the player loses the game.
+ * It extends the MenuPanel class and displays the game over message and the cause of the loss.
+ */
 public class Lose extends MenuPanel {
-    Font titleFont = new Font("Serif", Font.BOLD, 65);
-    Font text = new Font("Monospace", Font.PLAIN, 20);
-    String cause;
-    Color red = new Color(234, 153, 153);
+    private final Font titleFont = new Font("Serif", Font.BOLD, 65);
+    private final Font textFont = new Font("Monospace", Font.PLAIN, 20);
+    private final String cause;
+    private final Color red = new Color(234, 153, 153);
 
+    /**
+     * Constructs a Lose object with the specified cause of the loss.
+     *
+     * @param cause the cause of the loss
+     */
     public Lose(String cause) {
         this.cause = cause;
         setLayout(null);
 
         JButton button = new JButton("Return to Menu");
-        button.setBounds(220, 310, 160, 80); // Top-left corner
+        button.setBounds(220, 310, 160, 80);
 
         Color pink = new Color(243, 106, 157);
         button.setUI(new GameButtonUI(pink));
@@ -37,7 +46,7 @@ public class Lose extends MenuPanel {
     }
 
     @Override
-    public void paintComponent(Graphics g){
+    public void paintComponent(Graphics g) {
         g.setColor(red);
         g.fillRect(0, 0, getWidth(), getHeight());
         g.setFont(titleFont);
@@ -45,7 +54,7 @@ public class Lose extends MenuPanel {
         g.drawString("GAME OVER", 90, 120);
 
         int yPos = 200;
-        g.setFont(text);
+        g.setFont(textFont);
 
         switch (cause) {
             case "chips" -> {

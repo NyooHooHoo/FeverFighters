@@ -3,11 +3,17 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.io.IOException;
 
+/**
+ * The Win class represents the panel displayed when the player wins the game.
+ */
 public class Win extends MenuPanel {
     private final Font titleFont = new Font("Serif", Font.BOLD, 65);
     private final Font text = new Font("Monospace", Font.BOLD, 25);
     private final Color green = new Color(150, 224, 114);
 
+    /**
+     * Constructs a Win panel.
+     */
     public Win() {
         setLayout(null);
 
@@ -34,6 +40,12 @@ public class Win extends MenuPanel {
         setVisible(true);
     }
 
+    /**
+     * Overrides the paintComponent() method to paint the win screen.
+     *
+     * @param g the graphics context
+     */
+    @Override
     public void paintComponent(Graphics g){
         g.setColor(green);
         g.fillRect(0, 0, getWidth(), getHeight());

@@ -2,7 +2,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
+/**
+ * The Menu class represents the main menu of the Fever Fighters game.
+ * It extends the MenuPanel class.
+ */
 public class Menu extends MenuPanel {
+    /**
+     * Constructs a new Menu object.
+     * Sets up the layout and adds buttons to the menu.
+     */
     public Menu() {
         setLayout(new GridBagLayout()); // Use GridBagLayout for precise positioning
 

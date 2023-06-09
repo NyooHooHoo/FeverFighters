@@ -7,11 +7,23 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Represents the Level 3 of the game.
+ * Extends the Level class and introduces new features specific to this level.
+ */
 public class Level3 extends Level {
     private final Timer timer;
     private int bgY;
     private static final int shift = 4;
 
+    /**
+     * Constructs a new Level3 object.
+     * Initializes the level by creating a Character object, setting the background position,
+     * generating the initial row of items, and setting up the timer for the continuous movement of rows.
+     * Adds the character object to the list of sprites and displays a welcome message.
+     *
+     * @throws IOException if there is an error loading the required image files.
+     */
     public Level3() throws IOException {
         super();
 
@@ -60,7 +72,14 @@ public class Level3 extends Level {
         }
     }
 
+    /**
+     * Draws additional information on the screen, such as the score and health.
+     *
+     * @param g the Graphics object used for drawing.
+     * @throws IOException if there is an error loading the required image files.
+     */
     private void drawInfo(Graphics g) throws IOException {
+        // Draw background rectangles
         g.setColor(new Color(173, 222, 243));
         g.fillRect(20, 425, 110, 60);
         g.fillRect(470, 425, 115, 60);
@@ -71,15 +90,18 @@ public class Level3 extends Level {
         g.drawRect(20, 425, 110, 60);
         g.drawRect(470, 425, 115, 60);
 
+        // Draw text labels
         g.setFont(new Font("Arial", Font.BOLD, 14));
         g.drawString("Points", 504, 445);
         g.drawString("Health", 53, 445);
 
+        // Draw points and health values
         g.setFont(new Font("Arial", Font.BOLD, 24));
         Character c = (Character) getSprites().get(getSprites().size()-1);
         String points = String.format("%05d", c.getPoints());
         g.drawString(points, 495, 473);
 
+        // Load heart images and draw hearts based on character's health
         BufferedImage heart = ImageIO.read(new File("assets/heart.png"));
         BufferedImage emptyHeart = ImageIO.read(new File("assets/empty-heart.png"));
 
@@ -91,10 +113,18 @@ public class Level3 extends Level {
         }
     }
 
+    /**
+     * Generates a new row of items based on the previous row's configuration.
+     * The items can be good (worth 100 points) or bad (decrease health).
+     * The generation process takes into account the previous row's configuration to ensure balanced gameplay.
+     *
+     * @throws IOException if there is an error loading the required image files.
+     */
     private void generateRow() throws IOException {
         String[] good = {"water", "bed", "soup", "cold-med"};
         String[] bad = {"chips", "pepper", "pill"};
 
+        // Check previous row's configuration
         boolean prev1 = false;
         boolean prev2 = false;
         boolean prev3 = false;
@@ -116,6 +146,7 @@ public class Level3 extends Level {
             }
         }
 
+        // Generate new row based on the previous row's configuration
         int[] template = new int[3];
         template[0] = (prev1 || prev4) && prev2 ? (int) (Math.random() * 2) : (int) (Math.random() * 3) - 1;
         template[1] = prev1 && (prev3 || template[0] == -1) ? (int) (Math.random() * 2) : (int) (Math.random() * 3) - 1;
@@ -132,7 +163,14 @@ public class Level3 extends Level {
         repaint();
     }
 
+    /**
+     * Updates the positions of the rows and checks for collisions with the character.
+     * If a row goes off the screen, a new row is generated.
+     *
+     * @throws IOException if there is an error loading the required image files.
+     */
     private void updateRows() throws IOException {
+        // Update row positions
         for (int i = 0; i < getSprites().size() - 1; i++) {
             Sprite s = getSprites().get(i);
             s.setY(s.getY() + shift);
@@ -144,6 +182,7 @@ public class Level3 extends Level {
             generateRow();
         }
 
+        // Update background position
         bgY += shift;
         if (bgY >= 500) {
             bgY = 0;

@@ -6,13 +6,22 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * The About class represents a panel that displays information about the game.
+ * It extends the MenuPanel class.
+ */
 public class About extends MenuPanel {
     private final Font titleFont = new Font("SansSerif", Font.BOLD, 50);
     private final Font text = new Font("Monospace", Font.PLAIN, 15);
     private final Color lightBlue = new Color(189, 224, 254);
     private final Color blue = new Color(162, 210, 255);
-    private final BufferedImage logo = ImageIO.read(new File("assets/logo.png"));
+    private final BufferedImage logo;
 
+    /**
+     * Constructs an About panel.
+     *
+     * @throws IOException if an error occurs while loading the logo image.
+     */
     public About() throws IOException {
         setLayout(null);
 
@@ -32,11 +41,18 @@ public class About extends MenuPanel {
         });
         add(button);
 
+        logo = ImageIO.read(new File("assets/logo.png"));
+
         setVisible(true);
     }
 
+    /**
+     * Overrides the paintComponent method to paint the About panel.
+     *
+     * @param g the Graphics object used for painting.
+     */
     @Override
-    public void paintComponent(Graphics g){
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
         g.setFont(titleFont);
@@ -66,10 +82,10 @@ public class About extends MenuPanel {
         lines[7] = "programming along with";
         lines[8] = "project member Aidan Wang.";
 
-        int i=0;
-        while(i<lines.length){
+        int i = 0;
+        while (i < lines.length) {
             g.drawString(lines[i], xPos, yPos);
-            yPos +=22;
+            yPos += 22;
             i++;
         }
         g.drawImage(logo.getScaledInstance(150, 120, Image.SCALE_DEFAULT), 105, 185, this);

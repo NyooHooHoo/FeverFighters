@@ -71,6 +71,12 @@ public class Game extends JFrame {
         }
     };
 
+    /**
+     * Creates a new Game instance with the specified starting panel number.
+     *
+     * @param start the panel number to start the game from.
+     * @throws IOException if an IO error occurs.
+     */
     public Game(int start) throws IOException {
         setTitle("Fever Fighters");
         setSize(600, 521);
@@ -84,6 +90,12 @@ public class Game extends JFrame {
         setVisible(true);
     }
 
+    /**
+     * Loads the specified panel based on the panel number.
+     *
+     * @param panelNum the panel number to load.
+     * @throws IOException if an IO error occurs.
+     */
     public void loadPanel(int panelNum) throws IOException {
         if (currentPanel != null) {
             remove(currentPanel);

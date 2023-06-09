@@ -6,10 +6,19 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Represents the first level of the game.
+ */
 public class Level1 extends Level {
+    /**
+     * Constructs a new instance of Level1.
+     *
+     * @throws IOException if an I/O error occurs
+     */
     public Level1() throws IOException {
         super();
 
+        // Create and add sprites to the level
         Character c = new Character(260, 310);
         addSprite(c);
 
@@ -18,6 +27,7 @@ public class Level1 extends Level {
         addSprite(new Item(20, 440, "target", false));
         addSprite(new Item(500, 390, "target", false));
 
+        // Set the initial text box message
         String welcome = """
                 Welcome to Fever Fighters! To control your character, use the WASD keys to move up, left, down, and right. Let's practice moving around by making your character walk to each of the red Xs on the screen.
                 
@@ -27,11 +37,25 @@ public class Level1 extends Level {
         setTextBox(welcome);
     }
 
+    /**
+     * Draws the background image of the level.
+     *
+     * @param g the Graphics object to draw on
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
     public void drawBackground(Graphics g) throws IOException {
+        // Draw the level background image
         BufferedImage bg = ImageIO.read(new File("assets/bg1.png"));
         g.drawImage(bg, 0, 0, this);
     }
 
+    /**
+     * Moves the player character in the specified direction.
+     *
+     * @param direction the direction to move ("up", "down", "left", or "right")
+     * @throws IOException if an I/O error occurs
+     */
     public void move(String direction) throws IOException {
         Sprite c = getSprites().get(getSprites().size() - 1);
         switch (direction) {
@@ -60,6 +84,13 @@ public class Level1 extends Level {
         repaint();
     }
 
+    /**
+     * Handles collisions between the player character and other sprites.
+     *
+     * @param c the player character sprite
+     * @param s the collided sprite
+     * @throws IOException if an I/O error occurs
+     */
     public void collide(Sprite c, Sprite s) throws IOException {
         if (s.getType().equals("target")) {
             getSprites().remove(s);
@@ -108,7 +139,11 @@ public class Level1 extends Level {
         }
     }
 
-    public void endMessage() {
+    /**
+     * Displays the end message when all items have been collected.
+     * Updates the text box and handles the level complete event.
+     */
+    private void endMessage() {
         String congrats = """
                 Congratulations! Now that you’ve learned all about the dos and don’ts of surviving a cold, you can move on to the next level and test your knowledge of these items in a new setting.
                 

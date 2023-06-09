@@ -70,12 +70,25 @@ public class Level2 extends Level {
         setTextBox(welcome);
     }
 
+    /**
+     * Draws the background image of the level.
+     *
+     * @param g the Graphics object to draw on
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     public void drawBackground(Graphics g) throws IOException {
+        // Draw the level background image
         BufferedImage bg = ImageIO.read(new File("assets/bg2.png"));
         g.drawImage(bg, bgX, bgY, this);
     }
 
+    /**
+     * Moves the player character in the specified direction.
+     *
+     * @param direction the direction to move ("up", "down", "left", or "right")
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     public void move(String direction) throws IOException {
         boolean valid = true;
@@ -131,6 +144,13 @@ public class Level2 extends Level {
         repaint();
     }
 
+    /**
+     * Handles collisions between the player character and other sprites.
+     *
+     * @param c the player character sprite
+     * @param s the collided sprite
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     public void collide(Sprite c, Sprite s) throws IOException {
         if (s.getType().equals("wall")) {

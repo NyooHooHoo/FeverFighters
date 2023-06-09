@@ -1,9 +1,22 @@
 import java.io.IOException;
 
+/**
+ * The Item class represents an item in the game, which is a type of Sprite.
+ * It contains information about the item's type, whether it is bad or not, and its description.
+ */
 public class Item extends Sprite {
     private final boolean isBad;
     private final String description;
 
+    /**
+     * Constructs an Item object with the specified position, type, and bad indicator.
+     *
+     * @param x      the x-coordinate of the item's position.
+     * @param y      the y-coordinate of the item's position.
+     * @param type   the type of the item.
+     * @param isBad  indicates whether the item is bad or not.
+     * @throws IOException if an error occurs while loading the sprite image.
+     */
     public Item(int x, int y, String type, boolean isBad) throws IOException {
         super(x, y, type);
         this.isBad = isBad;
@@ -63,10 +76,20 @@ public class Item extends Sprite {
         }
     }
 
+    /**
+     * Returns the description of the item.
+     *
+     * @return the description of the item.
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * Checks if the item is bad.
+     *
+     * @return true if the item is bad, false otherwise.
+     */
     public boolean isBad() {
         return isBad;
     }

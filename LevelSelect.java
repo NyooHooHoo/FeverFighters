@@ -2,9 +2,20 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
+/**
+ * The LevelSelect class represents a panel that allows the user to select a game level.
+ * It extends the MenuPanel class and provides buttons for different levels and a return to the menu option.
+ */
 public class LevelSelect extends MenuPanel {
+
+    /**
+     * Constructs a LevelSelect object.
+     * Sets up the layout using GridBagLayout for precise positioning.
+     * Creates and configures buttons for different levels and the return to menu option.
+     * Adds the buttons to the panel and makes the panel visible.
+     */
     public LevelSelect() {
-        setLayout(new GridBagLayout()); // Use GridBagLayout for precise positioning
+        setLayout(new GridBagLayout());
 
         JLabel title = new JLabel("Level Select");
         JButton level1 = new JButton("Level 1: Learning");
@@ -12,6 +23,7 @@ public class LevelSelect extends MenuPanel {
         JButton level3 = new JButton("Level 3: Challenge");
         JButton menu = new JButton("Return to Menu");
 
+        // ActionListener for level 1 button
         level1.addActionListener(e -> {
             try {
                 startGameEvent(1);
@@ -20,6 +32,7 @@ public class LevelSelect extends MenuPanel {
             }
         });
 
+        // ActionListener for level 2 button
         level2.addActionListener(e -> {
             try {
                 startGameEvent(2);
@@ -28,6 +41,7 @@ public class LevelSelect extends MenuPanel {
             }
         });
 
+        // ActionListener for level 3 button
         level3.addActionListener(e -> {
             try {
                 startGameEvent(3);
@@ -36,6 +50,7 @@ public class LevelSelect extends MenuPanel {
             }
         });
 
+        // ActionListener for menu button
         menu.addActionListener(e -> {
             try {
                 returnMenuEvent();
@@ -44,6 +59,7 @@ public class LevelSelect extends MenuPanel {
             }
         });
 
+        // Add components to the panel
         addTitle(title, 0, 0);
         addButton(level1, 1, 0);
         addButton(level2, 2, 0);

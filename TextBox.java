@@ -2,7 +2,16 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 
+/**
+ * The TextBox class represents a text area for displaying text content.
+ */
 public class TextBox extends JTextArea {
+    /**
+     * Constructs a TextBox with the specified number of rows and columns.
+     *
+     * @param rows    the number of rows in the text area
+     * @param columns the number of columns in the text area
+     */
     public TextBox(int rows, int columns) {
         super(rows, columns);
         setBackground(new Color(237, 204, 202));
@@ -14,6 +23,11 @@ public class TextBox extends JTextArea {
         setEditable(false);
     }
 
+    /**
+     * Overrides the isFocusable() method to make the TextBox non-focusable.
+     *
+     * @return false to indicate that the TextBox is not focusable
+     */
     @Override
     public boolean isFocusable() {
         return false;
