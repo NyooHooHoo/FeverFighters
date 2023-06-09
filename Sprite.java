@@ -12,12 +12,14 @@ import java.io.IOException;
  * May 23: Aidan added collideWithSprite method to detect collisions
  * June 2: Aidan improved collision detection using Rectangle objects for hitbox
  *
+ * <h2>Time Spent:</h2>
+ * 2 hours
+ *
  * <h2>Course Info:</h2>
  * ICS4U0 with V. Krasteva
  *
  * @author Aidan Wang
  * @version 1
- * @date 05/16/2023
  */
 public class Sprite {
     /**

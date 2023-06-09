@@ -14,12 +14,14 @@ import java.io.IOException;
  * June 5: Replaced logo with scaled image
  * June 7: Aidan added animation and listeners
  *
+ * <h2>Time Spent:</h2>
+ * 1 hour
+ *
  * <h2>Course Info:</h2>
  * ICS4U0 with V. Krasteva
  *
  * @author Lauren Hewang, Aidan Wang
  * @version 2
- * @date 05/23/2023
  */
 public class SplashScreen extends JPanel {
     /**

@@ -3,12 +3,14 @@ import java.io.IOException;
 /**
  * The MenuListener interface provides callbacks for menu-related events.
  *
+ * <h2>Time Spent:</h2>
+ * less than 1 hour
+ *
  * <h2>Course Info:</h2>
  * ICS4U0 with V. Krasteva
  *
  * @author Aidan Wang
  * @version 4
- * @date 06/07/2023
  */
 public interface MenuListener {
     /**

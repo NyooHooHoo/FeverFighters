@@ -5,12 +5,14 @@ import java.awt.*;
 /**
  * The TextBox class represents a text area for displaying text content.
  *
+ * <h2>Time Spent</h2>
+ * less than 1 hour
+ *
  * <h2>Course Info:</h2>
  * ICS4U0 with V. Krasteva
  *
  * @author Aidan Wang
  * @version 3
- * @date 05/29/2023
  */
 public class TextBox extends JTextArea {
     /**

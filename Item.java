@@ -4,12 +4,14 @@ import java.io.IOException;
  * The Item class represents an item in the game, which is a type of Sprite.
  * It contains information about the item's type, whether it is bad or not, and its description.
  *
+ * <h2>Time Spent:</h2>
+ * 1 hour
+ *
  * <h2>Course Info:</h2>
  * ICS4U0 with V. Krasteva
  *
  * @author Aidan Wang
  * @version 1
- * @date 05/25/2023
  */
 public class Item extends Sprite {
     /**
