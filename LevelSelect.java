@@ -10,12 +10,14 @@ import java.io.IOException;
  * May 16: Lauren created class with all content
  * June 7: Aidan added buttons and listeners
  *
+ * <h2>Time Spent:</h2>
+ * 1 hour
+ *
  * <h2>Course Info:</h2>
  * ICS4U0 with V. Krasteva
  *
  * @author Lauren Hewang, Aidan Wang
  * @version 2
- * @date 05/16/2023
  */
 public class LevelSelect extends MenuPanel {
     /**

@@ -11,16 +11,18 @@ import java.io.IOException;
  * It extends the MenuPanel class.
  *
  * <h2>Modifications</h2>
- * May 24: Lauren added all layout and text
+ * May 24: Lauren created class with all layout and text
  * June 5: Lauren added scaled image logo
  * June 7: Aidan added button and listeners
+ *
+ * <h2>Time Spent:</h2>
+ * 1 hour
  *
  * <h2>Course Info:</h2>
  * ICS4U0 with V. Krasteva
  *
  * @author Lauren Hewang, Aidan Wang
  * @version 2
- * @date 05/24/2023
  */
 public class About extends MenuPanel {
     /**

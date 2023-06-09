@@ -14,12 +14,14 @@ import java.io.IOException;
  * May 30: Aidan created subclass of new abstract class Level
  * June 2: Aidan implemented move and collide methods
  *
+ * <h2>Time Spent:</h2>
+ * 3 hours
+ *
  * <h2>Course Info:</h2>
  * ICS4U0 with V. Krasteva
  *
  * @author Aidan Wang
  * @version 3
- * @date 05/30/2023
  */
 public class Level2 extends Level {
     /**

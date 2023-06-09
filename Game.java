@@ -5,14 +5,17 @@ import java.io.IOException;
  * The Game class represents one instance of a game in a JFrame, managing all other classes through JPanels.
  *
  * <h2>Modifications:</h2>
+ * May 23: Aidan created class
  * June 2: Aidan added LevelListener and JPanel switching
+ *
+ * <h2>Time Spent:</h2>
+ * 3 hours
  *
  * <h2>Course Info:</h2>
  * ICS4U0 with V. Krasteva
  *
  * @author Aidan Wang
  * @version 1
- * @date 06/02/2023
  */
 public class Game extends JFrame {
     /**

@@ -14,12 +14,14 @@ import java.io.IOException;
  * May 26: Aidan implemented text boxes for items half of level
  * May 30: Aidan created subclass of new abstract class Level
  *
+ * <h2>Time Spent:</h2>
+ * 4 hours
+ *
  * <h2>Course Info:</h2>
  * ICS4U0 with V. Krasteva
  *
  * @author Aidan Wang
  * @version 3
- * @date 05/30/2023
  */
 public class Level1 extends Level {
     /**

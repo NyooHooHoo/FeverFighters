@@ -11,12 +11,14 @@ import java.io.IOException;
  * May 19: Created Colors and buttons
  * June 7: Aidan added MenuPanel superclass and listeners
  *
+ * <h2>Time Spent:</h2>
+ * 2 hours
+ *
  * <h2>Course Info:</h2>
  * ICS4U0 with V. Krasteva
  *
  * @author Lauren Hewang, Aidan Wang
  * @version 1
- * @date 05/16/2023
  */
 public class Menu extends MenuPanel {
     /**

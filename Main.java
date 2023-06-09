@@ -8,7 +8,6 @@ import java.io.IOException;
  *
  * @author Aidan Wang
  * @version 4
- * @date 06/07/2023
  */
 public class Main {
     public static void main(String[] args) throws IOException {

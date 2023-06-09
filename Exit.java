@@ -10,15 +10,17 @@ import java.io.IOException;
  * It provides a thank-you message and credits.
  *
  * <h2>Modifications:</h2>
- * June 6: Lauren created content
+ * June 6: Lauren created class with content
  * June 7: Aidan added animation and listener
+ *
+ * <h2>Time Spent:</h2>
+ * 1 hour
  *
  * <h2>Course Info:</h2>
  * ICS4U0 with V. Krasteva
  *
  * @author Lauren Hewang, Aidan Wang
  * @version 4
- * @date 06/06/2023
  */
 public class Exit extends JPanel {
     /**

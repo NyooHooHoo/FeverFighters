@@ -16,12 +16,14 @@ import java.io.IOException;
  * June 5: Aidan implemented move, collide, drawBackground, and scrolling animation
  * June 6: Aidan added generateRow and drawInfo to complete the level
  *
+ * <h2>Time Spent:</h2>
+ * 4 hours
+ *
  * <h2>Course Info:</h2>
  * ICS4U0 with V. Krasteva
  *
  * @author Aidan Wang
  * @version 3
- * @date 05/30/2023
  */
 public class Level3 extends Level {
     /**

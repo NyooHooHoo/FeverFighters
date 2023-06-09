@@ -16,12 +16,14 @@ import java.util.ArrayList;
  * May 30: Aidan made this into an abstract class with abstract methods move, colllide, drawBackground
  * June 7: Aidan added return to menu button
  *
+ * <h2>Time Spent:</h2>
+ * 4 hours
+ *
  * <h2>Course Info:</h2>
  * ICS4U0 with V. Krasteva
  *
  * @author Aidan Wang
  * @version 2
- * @date 05/25/2023
  */
 public abstract class Level extends JPanel {
     /**

@@ -11,12 +11,14 @@ import java.io.IOException;
  * June 6: Lauren created content
  * June 8: Lauren added cases for each bad item
  *
+ * <h2>Time Spent:</h2>
+ * 1 hour
+ *
  * <h2>Course Info:</h2>
  * ICS4U0 with V. Krasteva
  *
  * @author Lauren Hewang
  * @version 4
- * @date 06/06/2023
  */
 public class Lose extends MenuPanel {
     /**
