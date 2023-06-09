@@ -5,6 +5,17 @@ import java.io.IOException;
 /**
  * The LevelSelect class represents a panel that allows the user to select a game level.
  * It extends the MenuPanel class and provides buttons for different levels and a return to the menu option.
+ *
+ * <h2>Modifications:</h2>
+ * May 16: Lauren created class with all content
+ * June 7: Aidan added buttons and listeners
+ *
+ * <h2>Course Info:</h2>
+ * ICS4U0 with V. Krasteva
+ *
+ * @author Lauren Hewang, Aidan Wang
+ * @version 2
+ * @date 05/16/2023
  */
 public class LevelSelect extends MenuPanel {
     /**
@@ -19,7 +30,7 @@ public class LevelSelect extends MenuPanel {
         JLabel title = new JLabel("Level Select");
         JButton level1 = new JButton("Level 1: Learning");
         JButton level2 = new JButton("Level 2: Maze");
-        JButton level3 = new JButton("Level 3: Challenge");
+        JButton level3 = new JButton("Level 3: Escape");
         JButton menu = new JButton("Return to Menu");
 
         // ActionListener for level 1 button

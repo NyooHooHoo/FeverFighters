@@ -6,6 +6,17 @@ import java.io.IOException;
 /**
  * The Lose class represents a panel that is displayed when the player loses the game.
  * It extends the MenuPanel class and displays the game over message and the cause of the loss.
+ *
+ * <h2>Modifications:</h2>
+ * June 6: Lauren created content
+ * June 8: Lauren added cases for each bad item
+ *
+ * <h2>Course Info:</h2>
+ * ICS4U0 with V. Krasteva
+ *
+ * @author Lauren Hewang
+ * @version 4
+ * @date 06/06/2023
  */
 public class Lose extends MenuPanel {
     /**

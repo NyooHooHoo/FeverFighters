@@ -7,7 +7,19 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Represents the first level of the game.
+ * Represents the first (learning) level of the game.
+ *
+ * <h2>Modifications:</h2>
+ * May 25: Aidan rote first half with Xs (originally in Level class)
+ * May 26: Aidan implemented text boxes for items half of level
+ * May 30: Aidan created subclass of new abstract class Level
+ *
+ * <h2>Course Info:</h2>
+ * ICS4U0 with V. Krasteva
+ *
+ * @author Aidan Wang
+ * @version 3
+ * @date 05/30/2023
  */
 public class Level1 extends Level {
     /**

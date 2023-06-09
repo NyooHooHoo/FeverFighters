@@ -5,6 +5,13 @@ import java.awt.*;
 /**
  * The GameButtonUI class is a custom button UI that provides a specific appearance for game buttons.
  * It extends the MetalButtonUI class from the Java Swing framework.
+ *
+ * <h2>Course Info:</h2>
+ * ICS4U0 with V. Krasteva
+ *
+ * @author Aidan Wang
+ * @version 4
+ * @date 06/07/2023
  */
 public class GameButtonUI extends MetalButtonUI {
     /**

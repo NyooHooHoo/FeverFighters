@@ -5,6 +5,18 @@ import java.io.IOException;
 /**
  * The Menu class represents the main menu of the Fever Fighters game.
  * It extends the MenuPanel class.
+ *
+ * <h2>Modifications</h2>
+ * May 16: Lauren create basic layout
+ * May 19: Created Colors and buttons
+ * June 7: Aidan added MenuPanel superclass and listeners
+ *
+ * <h2>Course Info:</h2>
+ * ICS4U0 with V. Krasteva
+ *
+ * @author Lauren Hewang, Aidan Wang
+ * @version 1
+ * @date 05/16/2023
  */
 public class Menu extends MenuPanel {
     /**

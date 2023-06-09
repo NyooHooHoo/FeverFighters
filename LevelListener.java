@@ -2,6 +2,13 @@ import java.io.IOException;
 
 /**
  * The LevelListener interface provides callbacks for level-related events.
+ *
+ * <h2>Course Info:</h2>
+ * ICS4U0 with V. Krasteva
+ *
+ * @author Aidan Wang
+ * @version 3
+ * @date 06/02/2023
  */
 public interface LevelListener {
     /**

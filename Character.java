@@ -3,6 +3,13 @@ import java.io.IOException;
 /**
  * The Character class represents a character sprite in a game.
  * It extends the Sprite class.
+ *
+ * <h2>Course Info:</h2>
+ * ICS4U0 with V. Krasteva
+ *
+ * @author Aidan Wang
+ * @version 1
+ * @date 05/23/2023
  */
 public class Character extends Sprite {
     /**

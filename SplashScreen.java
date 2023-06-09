@@ -8,6 +8,18 @@ import java.io.IOException;
 /**
  * The SplashScreen class represents a panel used for displaying a splash screen with a fading animation.
  * It extends the JPanel class.
+ *
+ * <h2>Modifications</h2>
+ * May 23: Lauren created class with Colors and text, drew logo
+ * June 5: Replaced logo with scaled image
+ * June 7: Aidan added animation and listeners
+ *
+ * <h2>Course Info:</h2>
+ * ICS4U0 with V. Krasteva
+ *
+ * @author Lauren Hewang, Aidan Wang
+ * @version 2
+ * @date 05/23/2023
  */
 public class SplashScreen extends JPanel {
     /**

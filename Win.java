@@ -5,6 +5,13 @@ import java.io.IOException;
 
 /**
  * The Win class represents the panel displayed when the player wins the game.
+ *
+ * <h2>Course Info:</h2>
+ * ICS4U0 with V. Krasteva
+ *
+ * @author Lauren Hewang
+ * @version 4
+ * @date 06/06/2023
  */
 public class Win extends MenuPanel {
     /**

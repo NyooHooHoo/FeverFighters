@@ -4,6 +4,13 @@ import java.io.IOException;
 
 /**
  * The Wall class represents a wall sprite in the game.
+ *
+ * <h2>Course Info:</h2>
+ * ICS4U0 with V. Krasteva
+ *
+ * @author Aidan Wang
+ * @version 3
+ * @date 06/02/2023
  */
 public class Wall extends Sprite {
     /**

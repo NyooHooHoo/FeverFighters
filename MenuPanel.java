@@ -6,6 +6,13 @@ import java.io.IOException;
 /**
  * The MenuPanel class represents a panel used in the game menu.
  * It extends the JPanel class.
+ *
+ * <h2>Course Info:</h2>
+ * ICS4U0 with V. Krasteva
+ *
+ * @author Aidan Wang
+ * @version 4
+ * @date 06/07/2023
  */
 public class MenuPanel extends JPanel {
     /**

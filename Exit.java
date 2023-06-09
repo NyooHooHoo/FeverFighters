@@ -8,6 +8,17 @@ import java.io.IOException;
 /**
  * The Exit class represents the exit panel displayed when the game is exited.
  * It provides a thank-you message and credits.
+ *
+ * <h2>Modifications:</h2>
+ * June 6: Lauren created content
+ * June 7: Aidan added animation and listener
+ *
+ * <h2>Course Info:</h2>
+ * ICS4U0 with V. Krasteva
+ *
+ * @author Lauren Hewang, Aidan Wang
+ * @version 4
+ * @date 06/06/2023
  */
 public class Exit extends JPanel {
     /**

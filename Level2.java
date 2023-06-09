@@ -7,7 +7,19 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Represents the second level of the game.
+ * Represents the second (maze) level of the game.
+ *
+ * <h2>Modifications:</h2>
+ * May 29: Aidan implemented moving mechanism (originally in Level class)
+ * May 30: Aidan created subclass of new abstract class Level
+ * June 2: Aidan implemented move and collide methods
+ *
+ * <h2>Course Info:</h2>
+ * ICS4U0 with V. Krasteva
+ *
+ * @author Aidan Wang
+ * @version 3
+ * @date 05/30/2023
  */
 public class Level2 extends Level {
     /**
