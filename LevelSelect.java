@@ -37,6 +37,7 @@ public class LevelSelect extends MenuPanel {
 
         // ActionListener for level 1 button
         level1.addActionListener(e -> {
+            endBackground();
             try {
                 startGameEvent(1);
             } catch (IOException ex) {
@@ -46,6 +47,7 @@ public class LevelSelect extends MenuPanel {
 
         // ActionListener for level 2 button
         level2.addActionListener(e -> {
+            endBackground();
             try {
                 startGameEvent(2);
             } catch (IOException ex) {
@@ -55,6 +57,7 @@ public class LevelSelect extends MenuPanel {
 
         // ActionListener for level 3 button
         level3.addActionListener(e -> {
+            endBackground();
             try {
                 startGameEvent(3);
             } catch (IOException ex) {
@@ -64,6 +67,7 @@ public class LevelSelect extends MenuPanel {
 
         // ActionListener for menu button
         menu.addActionListener(e -> {
+            endBackground();
             try {
                 returnMenuEvent();
             } catch (IOException ex) {
@@ -78,6 +82,17 @@ public class LevelSelect extends MenuPanel {
         addButton(level3, 3, 0);
         addButton(menu, 4, 0);
 
+        startBackground();
         setVisible(true);
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        try {
+            drawBackground(g);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

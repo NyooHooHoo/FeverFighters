@@ -35,6 +35,7 @@ public class Menu extends MenuPanel {
         JButton exit = new JButton("Exit");
 
         play.addActionListener(e -> {
+            endBackground();
             try {
                 startGameEvent(1);
             } catch (IOException ex) {
@@ -43,6 +44,7 @@ public class Menu extends MenuPanel {
         });
 
         levelSelect.addActionListener(e -> {
+            endBackground();
             try {
                 levelSelectEvent();
             } catch (IOException ex) {
@@ -51,6 +53,7 @@ public class Menu extends MenuPanel {
         });
 
         about.addActionListener(e -> {
+            endBackground();
             try {
                 aboutEvent();
             } catch (IOException ex) {
@@ -59,6 +62,7 @@ public class Menu extends MenuPanel {
         });
 
         exit.addActionListener(e -> {
+            endBackground();
             try {
                 exitEvent();
             } catch (IOException ex) {
@@ -72,6 +76,17 @@ public class Menu extends MenuPanel {
         addButton(about, 3, 0);
         addButton(exit, 4, 0);
 
+        startBackground();
         setVisible(true);
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        try {
+            drawBackground(g);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

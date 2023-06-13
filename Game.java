@@ -101,6 +101,7 @@ public class Game extends JFrame {
         public void close() {
             setVisible(false);
             dispose();
+            System.exit(0);
         }
     };
 

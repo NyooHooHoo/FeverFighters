@@ -62,6 +62,7 @@ public class About extends MenuPanel {
         button.setBorder(new LineBorder(blue, 4));
         button.setFont(new Font("Arial", Font.BOLD, 18));
         button.addActionListener(e -> {
+            endBackground();
             try {
                 returnMenuEvent();
             } catch (IOException ex) {
@@ -72,6 +73,7 @@ public class About extends MenuPanel {
 
         logo = ImageIO.read(new File("assets/logo.png"));
 
+        startBackground();
         setVisible(true);
     }
 
@@ -83,6 +85,12 @@ public class About extends MenuPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+
+        try {
+            drawBackground(g);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         g.setFont(titleFont);
         g.setColor(Color.BLACK);

@@ -41,6 +41,14 @@ public class MenuPanel extends JPanel {
      * MenuListener to fire events when buttons clicked
      */
     private MenuListener menuListener;
+    /**
+     * Integer for background position
+     */
+    private int bgX = 0;
+    /**
+     * Timer to run background animation
+     */
+    private Timer timer;
 
     /**
      * Overrides the paintComponent method to set the background color of the panel.
@@ -100,6 +108,53 @@ public class MenuPanel extends JPanel {
         constraints.gridy = row;
         constraints.insets = new Insets(0, 0, 20, 0); // Add vertical spacing between buttons
         return constraints;
+    }
+
+    /**
+     * Starts the Timer animation for the items in the background
+     */
+    public void startBackground() {
+        timer = new Timer(20, e -> {
+            bgX += 2;
+            if (bgX > 600)
+                bgX = 0;
+            repaint();
+        });
+        timer.start();
+    }
+    /**
+     * Stops the Timer animation for the items in the background
+     */
+    public void endBackground() {
+        if (timer != null)
+            timer.stop();
+    }
+
+    /**
+     * Draw background items
+     *
+     * @param g Graphics to draw items in
+     */
+    public void drawBackground(Graphics g) throws IOException {
+        new Item(bgX, 20, "water", false).draw(g, this);
+        new Item(bgX + 300, 20, "chips", false).draw(g, this);
+        new Item(bgX + 200, 120, "soup", false).draw(g, this);
+        new Item(bgX + 500, 120, "pill", false).draw(g, this);
+        new Item(bgX + 100, 120, "pepper", false).draw(g, this);
+        new Item(bgX + 400, 220, "bed", false).draw(g, this);
+        new Item(bgX + 200, 320, "cold-med", false).draw(g, this);
+        new Item(bgX, 420, "soup", false).draw(g, this);
+        new Item(bgX + 400, 420, "pepper", false).draw(g, this);
+        int bgX2 = bgX - 600;
+        new Item(bgX2, 20, "water", false).draw(g, this);
+        new Item(bgX2 + 300, 20, "chips", false).draw(g, this);
+        new Item(bgX2 + 200, 120, "soup", false).draw(g, this);
+        new Item(bgX2 + 500, 120, "pill", false).draw(g, this);
+        new Item(bgX2 + 100, 120, "pepper", false).draw(g, this);
+        new Item(bgX2 + 400, 220, "bed", false).draw(g, this);
+        new Item(bgX2 + 200, 320, "cold-med", false).draw(g, this);
+        new Item(bgX2, 420, "soup", false).draw(g, this);
+        new Item(bgX2 + 400, 420, "pepper", false).draw(g, this);
     }
 
     /**
