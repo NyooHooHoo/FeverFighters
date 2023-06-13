@@ -7,7 +7,7 @@ Fever Fighters is a simple survival game for children ages 5-6 where the objecti
 
 ## Running the Program
 
-The executable file `FeverFighters.jar` can be found in the repository. The JAR file must be run with a Java Development Kit (JDK) version 19+ and the `assets` folder must be in the same directory to be accessed. Alternatively, the entire program can be run through the driver class `Main.java`.
+The executable file `FeverFighters.jar` can be found in the repository. The JAR file must be run with a Java Development Kit (JDK) version 17+ and the `assets` folder must be in the same directory to be accessed. Alternatively, the entire program can be run through the driver class `Main.java`.
 
 ## Documentation
 
